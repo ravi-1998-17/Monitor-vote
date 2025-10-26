@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: rgb(255, 253, 146);
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--dark);
+  min-height: 23rem;
+  width: 100%;
+}
+
+.pickers-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.pickers-header span {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.pickers-line {
+  flex: 1;
+  border-bottom: 3px solid #333;
+  opacity: 0.6;
+  margin-left: 8px;
+}
+
+
+.gain-vote {
+  width: 50%;
+  padding: .8rem 3rem;
+  background-color: rgb(255, 253, 146);
+  border: 1px solid black;
+  margin: -2rem auto 0;
+}

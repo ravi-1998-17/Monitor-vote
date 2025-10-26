@@ -9,3 +9,15 @@
   margin: auto;
   border: 1px dotted var(--teal);
 }
+
+.main .head {
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+.main .monitors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
