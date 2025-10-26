@@ -1,42 +1,127 @@
+/* Hagrid Thin */
 @font-face {
   font-family: "Hagrid";
-  src: url("../fonts/Hagrid-Regular-trial.ttf") format("truetype");
+  src: url("./hagrid/Hagrid-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+/* Hagrid Light */
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Hagrid Regular */
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Hagrid";
-  src: url("../fonts/Hagrid-Italic-trial.ttf") format("truetype");
+  src: url("./hagrid/Hagrid-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 
+/* Hagrid Medium */
 @font-face {
   font-family: "Hagrid";
-  src: url("../fonts/Hagrid-Text-Extrabold-trial.ttf") format("truetype");
+  src: url("./hagrid/Hagrid-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Hagrid Bold */
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Hagrid Heavy */
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-Heavy.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Hagrid";
-  src: url("../fonts/Hagrid-Text-Extrabold-Italic-trial.ttf") format("truetype");
+  src: url("./hagrid/Hagrid-HeavyItalic.ttf") format("truetype");
   font-weight: 800;
   font-style: italic;
 }
 
-/* -------- INTER -------- */
+/* Hagrid Extrabold */
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-Extrabold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/Hagrid-ExtraboldItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Hagrid OTF (Optional Extra) */
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/hagrid-regular.otf") format("opentype");
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("./hagrid/hagridtext-bold.otf") format("opentype");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
-  font-weight: 400;
+  src: url("./inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
   font-style: italic;
+  font-display: swap;
 }

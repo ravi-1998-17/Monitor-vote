@@ -1,6 +1,17 @@
 :root {
+  /* FONTS */
   --font-primary: "Hagrid", sans-serif;
   --font-secondary: "Inter", sans-serif;
+  /* COLORS */
+  --light: #f5f4e6;
+  --dark: #000;
+  --grey-dark: #6d6d6d;
+  --grey-light: #8a8a8a;
+  --teal: #053436;
+  --yellow: #fded8f;
+  --orange: #da6124;
+  --pink: #bcebbe;
+  --salmon: #ffb6b6;
 }
 
 * {
