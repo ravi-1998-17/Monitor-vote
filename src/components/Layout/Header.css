@@ -9,6 +9,11 @@
   font-weight: 500;
 }
 
+.menu-icon {
+  display: none;
+  width: 1.5rem;
+}
+
 .logo img {
   cursor: pointer;
   margin-left: 1rem;

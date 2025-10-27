@@ -1,0 +1,21 @@
+.votes {
+    border: 1px solid var(--dark);
+    padding: .2rem;
+    display: flex;
+    font-family: var(--font-primary);
+    color: var(--teal);
+}
+
+.votes .totalBtn {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    padding: .5rem 3rem;
+    background-color: var(--yellow);
+    color: var(--teal);
+    border: 1px solid var(--dark);
+}
+
+.votes .totalCount {
+    padding: .5rem 3.5rem;
+}
+

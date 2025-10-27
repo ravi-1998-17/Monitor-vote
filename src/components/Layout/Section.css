@@ -1,8 +1,48 @@
-.section{
+.section {
   font-family: var(--font-primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--teal);
+  text-align: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.section .head {
+  font-size: 3.75rem;
+}
+
+.section hr {
+  height: 2px;
+  background-color: var(--teal);
+  width: 5rem;
+}
+
+.section p {
+  font-size: .8rem;
+  max-width: 50%;
+  color: var(--grey-dark);
+  font-family: var(--font-secondary);
+  font-style: italic;
+}
+
+.add-vote {
+  border: 1px solid var(--dark);
+  border-radius: 25px;
+  font-family: var(--font-primary);
+  background-color: var(--pink);
+  color: var(--teal);
+  padding: .75rem 2.5rem;
+  font-size: .75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ;
+}
+
+.add-vote:hover, .add-vote:active{
+  background-color: var(--yellow);
+  color: var(--teal);
+  transform: scale(.98);
 }

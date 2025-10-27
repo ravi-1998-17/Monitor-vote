@@ -1,23 +1,17 @@
 .container {
   background: url(/src/assets/background.png) no-repeat;
   background-size: cover;
-  height: 100vh;
+  background-position: start;
+  min-height: 100vh;
 }
 
 .wrapper {
   max-width: 1600px;
   margin: auto;
-  border: 1px dotted var(--teal);
 }
 
-.main .head {
-  font-size: 4rem;
-  font-weight: 900;
-}
-
-.main .monitors {
+.main {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 1.5rem;
 }

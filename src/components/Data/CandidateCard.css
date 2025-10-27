@@ -1,0 +1,80 @@
+.cad-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candidate-card {
+  max-width: 200px;
+  width: 200px;
+  padding: 3rem 2rem;
+  min-height: 16rem;
+  font-family: var(--font-primary);
+  border: 1px solid var(--dark);
+  flex-direction: column;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.candidate-card hr {
+  display: flex;
+  margin-top: 1rem;
+  width: 1.5rem;
+  height: 2px;
+  border: none;
+}
+
+.pickers {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.candidate-card .pickers span {
+  width: 100%;
+  height: 2px;
+  background-color: antiquewhite;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: .7rem;
+  margin-right: .5rem;
+}
+
+.picker-item {
+  font-family: var(--font-secondary);
+  font-size: .9rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.6rem 0;
+}
+
+.picker-item button {
+  font-size: .6rem;
+  background: #ffc107;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-footer {
+  width: 70%;
+  border: 1px solid var(--dark);
+  text-align: center;
+  font-weight: bold;
+  margin-top: -1.3rem;
+}
+
+.card-footer p {
+  padding: 0.6rem 3rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1170px) {
+
+}

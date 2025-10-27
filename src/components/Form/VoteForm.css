@@ -1,0 +1,55 @@
+.vote-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--orange);
+    padding: 0.5rem 2rem;
+    border: 1px solid var(--dark);
+    gap: 2rem;
+    color: #fff;
+    font-family: var(--font-primary);
+}
+
+.vote-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+label input::placeholder {
+    font-style: italic;
+    font-size: .7rem;
+    font-family: var(--font-secondary);
+}
+
+.vote-form input,
+.vote-form select {
+    padding: 0.3rem 1rem;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+
+.btn-box {
+    display: flex;
+    gap: .5rem;
+}
+
+.btn-box .vBtn {
+    font-family: var(--font-primary);
+    font-size: .75rem;
+    font-weight: 400;
+    padding: 0.4rem 1.75rem;
+    border: .5px solid var(--dark);
+    cursor: pointer;
+}
+
+.btn-box .vote-btn {
+    background-color: var(--yellow);
+}
+
+.btn-box .close-btn {
+    background-color: var(--pink);
+}
