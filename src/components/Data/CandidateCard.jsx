@@ -2,8 +2,11 @@ import React from "react";
 import "./CandidateCard.css";
 import PickerItem from "./PickerItem";
 import "@/assets/fonts/fonts.css";
+import { cardStyles } from "./cardStyles";
 
-const CandidateCard = ({ candidate, bgColor, txtColor }) => {
+const CandidateCard = ({ candidate, idx, dispatch }) => {
+  const { bgColor, txtColor } = cardStyles[idx % cardStyles.length];
+
   return (
     <div className="cad-wrapper">
       <div
@@ -23,7 +26,12 @@ const CandidateCard = ({ candidate, bgColor, txtColor }) => {
             <PickerItem
               key={index}
               name={picker}
-              onDelete={() => console.log("Delete:", picker)}
+              onDelete={() =>
+                dispatch({
+                  type: "DEL_VOTE",
+                  payload: { champ: candidate.name, studentName: picker },
+                })
+              }
               txtColor={txtColor}
             />
           ))}
@@ -34,7 +42,7 @@ const CandidateCard = ({ candidate, bgColor, txtColor }) => {
         className="card-footer"
         style={{ backgroundColor: bgColor, color: txtColor }}
       >
-        <p>5</p>
+        <p>{candidate.pickers.length}</p>
       </div>
     </div>
   );

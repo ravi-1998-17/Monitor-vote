@@ -53,3 +53,13 @@ label input::placeholder {
 .btn-box .close-btn {
     background-color: var(--pink);
 }
+
+@media (max-width: 800px) {
+    .vote-form {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 2rem;
+        flex-basis: 1;
+    }
+
+}

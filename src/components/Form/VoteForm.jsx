@@ -2,14 +2,23 @@ import React, { useState } from "react";
 import "./VoteForm.css";
 import "@/assets/fonts/fonts.css";
 
-const VoteForm = ({ onClose, onSubmit }) => {
-  const [studentName, setStudentName] = useState("");
-  const [champion, setChampion] = useState("Piyush");
+const VoteForm = ({ onClose, getVoterData}) => {
+  const [formData, setFormData] = useState({
+    studentName: "",
+    champ: "Piyush",
+  });
+
+  const onChangeHandler = (e) => {
+    setFormData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!studentName.trim()) return;
-    onSubmit({ studentName, champion });
+    if (!formData.studentName.trim())
+      return alert("Enter your name & select your Champ");
+    getVoterData(formData)
     onClose();
   };
 
@@ -19,15 +28,16 @@ const VoteForm = ({ onClose, onSubmit }) => {
         <strong>Student Name:</strong>
         <input
           type="text"
-          value={studentName}
-          onChange={(e) => setStudentName(e.target.value)}
+          value={formData.studentName}
+          name="studentName"
+          onChange={onChangeHandler}
           placeholder="Enter name"
         />
       </label>
 
       <label>
         <strong>Select Champion:</strong>
-        <select value={champion} onChange={(e) => setChampion(e.target.value)}>
+        <select value={formData.champ} onChange={onChangeHandler} name="champ">
           <option value="Piyush">Piyush</option>
           <option value="Rahul">Rahul</option>
           <option value="Kunal">Kunal</option>

@@ -3,7 +3,7 @@ import Votes from "./Votes";
 import "@/components/Layout/Section.css";
 import "@/assets/fonts/fonts.css";
 
-const Section = ({onAddVote}) => {
+const Section = ({ onAddVote, totalVotes }) => {
   return (
     <section className="section">
       <h1 className="head">Who’s Your Class Hero?</h1>
@@ -13,8 +13,11 @@ const Section = ({onAddVote}) => {
         leading by checking the votes and pickers for each candidate. Rally your
         friends, cast your vote, and find out who wins the title of class hero.
       </p>
-      <Votes />
-      <button className="add-vote" onClick={onAddVote}>Pick Your Hero</button>
+      <Votes totalVotes={totalVotes} />
+
+      <button className="add-vote" onClick={onAddVote}>
+        Pick Your Hero
+      </button>
     </section>
   );
 };

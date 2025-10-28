@@ -1,6 +1,6 @@
 import "./App.css";
 import "./assets/fonts/fonts.css";
-import { useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Card from "./components/Card/Card";
 import Header from "./components/Layout/Header";
 import Section from "./components/Layout/Section";
@@ -8,38 +8,84 @@ import CandidateCard from "./components/Data/CandidateCard";
 import VoteForm from "./components/Form/VoteForm";
 import Modal from "./components/Modal";
 
+const initialCandidates = [
+  {
+    name: "Piyush",
+    pickers: ["Bharat", "Vinay", "Shital", "Kaitan"],
+  },
+  {
+    name: "Rahul",
+    pickers: ["Ankit", "Mohit", "Suresh", "Ravi"],
+  },
+  {
+    name: "Kunal",
+    pickers: ["Ajay", "Nikhil", "Manish"],
+  },
+  {
+    name: "Jagveer",
+    pickers: ["Himanshu", "Vishal", "Rahul"],
+  },
+];
+
+function candidatesReducer(state, action) {
+  switch (action.type) {
+    case "ADD_VOTE":
+      return state.map((candidate) => {
+        if (candidate.name === action.payload.champ) {
+          return {
+            ...candidate,
+            pickers: [...candidate.pickers, action.payload.studentName],
+          };
+        }
+        return candidate;
+      });
+
+    case "DEL_VOTE":
+      return state.map((candidate) => {
+        if (candidate.name === action.payload.champ) {
+          return {
+            ...candidate,
+            pickers: candidate.pickers.filter(
+              (picker) => picker !== action.payload.studentName
+            ),
+          };
+        }
+        return candidate;
+      });
+
+    default:
+      return state;
+  }
+}
+
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [candiates, dispatch] = useReducer(
+    candidatesReducer,
+    initialCandidates,
+    () => {
+      const savedData = localStorage.getItem("savedData");
+      return savedData ? JSON.parse(savedData) : initialCandidates;
+    }
+  );
+
+  useEffect(() => {
+    localStorage.setItem("savedData", JSON.stringify(candiates));
+  });
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const candidates = [
-    {
-      name: "Piyush",
-      pickers: ["Bharat", "Vinay", "Shital", "Kaitan"],
-      bgColor: "var(--yellow)",
-      txtColor: "var(--teal)",
-    },
-    {
-      name: "Rahul",
-      pickers: ["Ankit", "Mohit", "Suresh", "Ravi"],
-      bgColor: "var(--pink)",
-      txtColor: "var(--teal)",
-    },
-    {
-      name: "Kunal",
-      pickers: ["Ajay", "Nikhil", "Manish"],
-      bgColor: "var(--orange)",
-      txtColor: "var(--light)",
-    },
-    {
-      name: "Jagveer",
-      pickers: ["Himanshu", "Vishal", "Rahul"],
-      bgColor: "var(--teal)",
-      txtColor: "var(--light)",
-    },
-  ];
+  const getVoterData = (voter) => {
+    console.log(voter);
+
+    dispatch({ type: "ADD_VOTE", payload: voter });
+  };
+
+  const totalVotes = candiates.reduce((total, candidate) => {
+    return total + candidate.pickers.length;
+  }, 0);
 
   return (
     <>
@@ -47,14 +93,14 @@ const App = () => {
         <div className="wrapper">
           <Header />
           <main className="main">
-            <Section onAddVote={openModal} />
+            <Section onAddVote={openModal} totalVotes={totalVotes} />
             <Card>
-              {candidates.map((candidate, index) => (
+              {candiates.map((candidate, index) => (
                 <CandidateCard
                   key={index}
                   candidate={candidate}
-                  bgColor={candidate.bgColor}
-                  txtColor={candidate.txtColor}
+                  idx={index}
+                  dispatch={dispatch}
                 />
               ))}
             </Card>
@@ -64,7 +110,7 @@ const App = () => {
 
       {isModalOpen && (
         <Modal onClose={closeModal}>
-          <VoteForm onClose={closeModal} />
+          <VoteForm onClose={closeModal} getVoterData={getVoterData} />
         </Modal>
       )}
     </>
