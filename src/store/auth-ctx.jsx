@@ -1,4 +1,9 @@
-const { createContext } = require("react");
+import { createContext } from "react";
 
-const voteContext = createContext();
+const voteContext = createContext({
+  candiates: [],
+  dispatch: () => {},
+  totalVotes: 0,
+});
+
 export default voteContext;

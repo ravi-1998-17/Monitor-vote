@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CandidateCard.css";
 import PickerItem from "./PickerItem";
 import "@/assets/fonts/fonts.css";
 import { cardStyles } from "./cardStyles";
+import voteContext from "@/store/auth-ctx";
 
-const CandidateCard = ({ candidate, idx, dispatch }) => {
+const CandidateCard = ({ candidate, idx }) => {
   const { bgColor, txtColor } = cardStyles[idx % cardStyles.length];
+
+  const { dispatch } = useContext(voteContext);
 
   return (
     <div className="cad-wrapper">

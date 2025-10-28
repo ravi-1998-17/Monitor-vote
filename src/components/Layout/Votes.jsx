@@ -1,8 +1,10 @@
-import React from "react";
-import "@/assets/fonts/fonts.css"
-import "@/components/Layout/Votes.css"
+import React, { useContext } from "react";
+import "@/assets/fonts/fonts.css";
+import "@/components/Layout/Votes.css";
+import voteContext from "@/store/auth-ctx";
 
-const Votes = ({totalVotes}) => {
+const Votes = () => {
+  const { totalVotes } = useContext(voteContext);
   return (
     <>
       <div className="votes">

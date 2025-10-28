@@ -7,6 +7,7 @@ import Section from "./components/Layout/Section";
 import CandidateCard from "./components/Data/CandidateCard";
 import VoteForm from "./components/Form/VoteForm";
 import Modal from "./components/Modal";
+import voteContext from "./store/auth-ctx";
 
 const initialCandidates = [
   {
@@ -89,30 +90,31 @@ const App = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="wrapper">
-          <Header />
-          <main className="main">
-            <Section onAddVote={openModal} totalVotes={totalVotes} />
-            <Card>
-              {candiates.map((candidate, index) => (
-                <CandidateCard
-                  key={index}
-                  candidate={candidate}
-                  idx={index}
-                  dispatch={dispatch}
-                />
-              ))}
-            </Card>
-          </main>
+      <voteContext.Provider value={{ candiates, dispatch, totalVotes }}>
+        <div className="container">
+          <div className="wrapper">
+            <Header />
+            <main className="main">
+              <Section onAddVote={openModal} />
+              <Card>
+                {candiates.map((candidate, index) => (
+                  <CandidateCard
+                    key={index}
+                    candidate={candidate}
+                    idx={index}
+                  />
+                ))}
+              </Card>
+            </main>
+          </div>
         </div>
-      </div>
 
-      {isModalOpen && (
-        <Modal onClose={closeModal}>
-          <VoteForm onClose={closeModal} getVoterData={getVoterData} />
-        </Modal>
-      )}
+        {isModalOpen && (
+          <Modal onClose={closeModal}>
+            <VoteForm onClose={closeModal} getVoterData={getVoterData} />
+          </Modal>
+        )}
+      </voteContext.Provider>
     </>
   );
 };
