@@ -1,32 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "@/assets/logo.png";
 import "@/components/Layout/Header.css";
 import "@/assets/fonts/fonts.css";
 import menuIcon from "@/assets/menu.svg";
+import closeIcon from "@/assets/close.svg"; 
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <header className="header">
       <div className="logo">
         <img src={logo} alt="Site Logo" />
       </div>
-      <nav className="nav">
-        <img src={menuIcon} alt="Menu Icon" className="menu-icon" />
+
+      <img
+        src={isMenuOpen ? closeIcon : menuIcon}
+        alt="Menu Icon"
+        className="menu-icon"
+        onClick={toggleMenu}
+      />
+
+      <nav className={`nav ${isMenuOpen ? "active" : ""}`}>
         <ul>
           <li>
-            <a href="#home">Home</a>
+            <a href="#home" onClick={() => setIsMenuOpen(false)}>
+              Home
+            </a>
           </li>
           <li>
-            <a href="#about">About</a>
+            <a href="#about" onClick={() => setIsMenuOpen(false)}>
+              About
+            </a>
           </li>
           <li>
-            <a href="#blog">Blog</a>
+            <a href="#blog" onClick={() => setIsMenuOpen(false)}>
+              Blog
+            </a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)}>
+              Contact
+            </a>
           </li>
         </ul>
       </nav>
+
       <div className="btn-box">
         <button className="btn user" aria-label="User Profile">
           Ravi
